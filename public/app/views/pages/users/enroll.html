@@ -1,0 +1,59 @@
+<style type="text/css">
+	.affix-top{
+		background-color: #1c1d21; 
+	}
+</style>
+
+<section id="enroll" ng-controller="enrollCtrl as enroll">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Enroll your apartment / community.</h2>
+                </div>
+			</div>
+
+			<center>
+			<div class="form-area" style="width: 40%">  
+        	<form role="form" ng-submit="enroll.enrollUser(enrollData);" id="enrollform">
+        	<br style="clear:both">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-model="enroll.enrollData.name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" ng-model="enroll.enrollData.mobile" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="aptnumber" class="form-control" id="aptnumber" name="aptnumber" placeholder="Door number" ng-model="enroll.enrollData.aptnumber" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Appartment name" name="Appartment name" placeholder="Appartment name" ng-model="enroll.enrollData.aptname" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="" name="" placeholder="Appartment name" ng-model="enroll.enrollData.aptname" >
+                    </div>
+
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" name="text" id="message" placeholder="Address" maxlength="140" rows="7" ng-model="main.enrollData.text"></textarea>                     
+                    </div>
+            
+                <button type="submit" id="submit" name="submit" class="btn btn-xl pull-right" style="padding: 10px 20px; font-size: 17px">Submit Form</button>
+            </form></center>
+                <div class="alert alert-success" id="loader1" >
+                    <div class="loader" style="margin-left: 220px;"></div>
+                </div>
+                <div class="alert alert-success" id="success-alert1">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>Success! </strong>
+                    Your message has been sent.
+                </div>
+                <div class="alert alert-danger" id="failure-alert1">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>Oops! </strong>
+                    Something went wrong. Try again later.
+                </div>
+            </div>
+
+		</div>
+	</section>

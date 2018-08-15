@@ -1,0 +1,182 @@
+<style type="text/css">
+  .affix-top{
+    background-color: #1c1d21; 
+  }
+</style>
+<style type="text/css">
+  .parent-container {
+  padding: 0 20px 0 20px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.faq {
+  list-style: none;
+  padding-left: 40px;
+  padding-right: 20px;
+}
+.faq li {
+  border-bottom: 1px solid #999999;
+  margin-bottom: 15px;
+}
+.faq li.active .answer {
+  max-height: 275px !important;
+  padding-bottom: 25px;
+  transition: max-height 0.5s ease, padding-bottom 0.5s ease;
+}
+.faq li.active .question {
+  color: #808080;
+  transition: color 0.5s ease;
+}
+.faq .answer {
+  color: #090909;
+  font-family: serif;
+  font-size: 16px;
+  line-height: 24px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding-bottom 0.5s ease;
+}
+.faq .plus-minus-toggle {
+  cursor: pointer;
+  height: 21px;
+  position: absolute;
+  width: 21px;
+  left: -40px;
+  top: 50%;
+  z-index: 2;
+}
+.faq .plus-minus-toggle:before, .faq .plus-minus-toggle:after {
+  background: #000;
+  content: '';
+  height: 3px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 15px;
+  transition: transform 500ms ease;
+}
+.faq .plus-minus-toggle:after {
+  transform-origin: center;
+}
+.faq .plus-minus-toggle.collapsed:after {
+  transform: rotate(90deg);
+}
+.faq .plus-minus-toggle.collapsed:before {
+  transform: rotate(180deg);
+}
+.faq .question {
+  color: #090909;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  padding: 20px 0;
+  transition: color 0.5s ease;
+}
+@media screen and (max-width: 767px) {
+  .faq .question {
+    font-size: 14px;
+  }
+}
+
+</style>
+
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">FAQ</h2>
+            </div>
+        </div>
+<div class="parent-container">
+   <ul class="faq">
+    <li>
+      <h3 class="question">What is Bumper Wash?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">Bumper Wash is a daily community car wash start up. </div>
+    </li>
+
+    <li>
+      <h3 class="question">What makes BW special?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">1. Minimal Water Usage<br>
+                          2. Everyday Care<br>
+                          3. Professional Service<br>
+                          4. Process Transparency<br>
+      </div>
+    </li>
+
+    <li>
+      <h3 class="question">What are the services offered?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">1.Daily Exterior Damp Wash(Termed Dry Wash)<br>
+                          2.Weekly Exterior Exhaustive Wash<br>
+                          3.Bi Weekly Interior Wash<br>
+      </div>
+    </li>
+
+    <li>
+      <h3 class="question">What is meant by dry wash?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">Cars washed using special car care solution, recommended by industry experts.</div>
+    </li>
+
+    <li>
+      <h3 class="question">What is your water consumption pattern?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">We use less than 250ml of water for your daily wash.</div>
+    </li>
+
+    <li>
+      <h3 class="question">How will you prevent scratches on the car, while using less water ?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">We use industry certified and tested microfiber cloth which will prevent the dust scratches on the car.</div>
+    </li>
+    <li>
+      <h3 class="question">How many times a month is the car washed?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">Cars are washed for 25 days in a month, which includes bi weekly interior wash.</div>
+    </li>
+    <li>
+      <h3 class="question">How much will it cost me to avail these services?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">Depends on the category of car you have. Kindly check the packages for more information.</div>
+    </li>
+
+
+
+    <li>
+      <h3 class="question">What are the time slots for your services?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">We operate from  5:30am - 9:30am.</div>
+    </li>
+    <li>
+      <h3 class="question">Can we choose our own time slots? 
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">Not currently, however we are working towards offering this service on weekends.</div>
+    </li>
+    <li>
+      <h3 class="question">Can I subscribe anytime during the month?
+        <div class="plus-minus-toggle collapsed"></div>
+      </h3>
+      <div class="textfont">Yes, you can avail the services by enrolling mid way or anytime during the month. </div>
+    </li>
+  </ul>
+</div>
+</div>
+</section>

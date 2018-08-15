@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--#ebf4fb-->
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/images/BumperWash-LOGOWHITE.png">
+
+    <!-- Main Angular Files -->
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+    <!-- Angular Config/Routes -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <!-- Angular Controllers -->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/emailCtrl.js"></script>
+    <script src="app/controllers/managementCtrl.js"></script>
+    <script src="app/controllers/enrollCtrl.js"></script>
+
+    <!-- Angular Services -->
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+
+    <!-- Cascade Style Sheets -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+
+    <title>Bumper Wash</title>
+
+</head>
+
+<body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+    <!-- 
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+           
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Bumper Wash</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="/">Home</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="!main.isLoggedIn" class="page-scroll" href="/register">Register</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="main.isLoggedIn" class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="main.isLoggedIn && main.authorized" class="page-scroll" href="/management">Management</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="main.isLoggedIn" class="page-scroll" href="/profile">Hello {{ main.username }}</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </nav>
+-->
+
+    <!--navbar-->
+    <div class="container-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="730" style="height: 59px; padding-left: 0px;" >
+        <div class="navbar-header">
+            <a class="navbar-brand" href="app/views/pages/index.html"  style="padding-top: 10px;padding-left: 20px">
+                <img src="assets/images/BumperWash-LOGOWHITE.png" onmouseover="zoomin(this)" onmouseout="zoomout(this)" style="height:35px; margin-bottom: 10px;">
+            </a>
+            <script type="text/JavaScript">
+                function zoomin(x){
+                    x.style.height = "40px";
+                }function zoomout(x){
+                    x.style.height = "35px";                            
+                }
+            </script>
+            <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse" >
+          <ul class="nav navbar-right navbar-nav">
+            
+            <style type="text/css">
+                .btn-transparent{
+                    background: transparent;
+                    color: #F0F0F0;
+                    -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+                    -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+                    -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+                    transition: background .2s ease-in-out, border .2s ease-in-out;
+                    border: 2px solid #F0F0F0;
+                    padding-left: 25px;
+                    padding-right: 25px;
+                    width: 150px;    
+                }
+
+                .btn-transparent:hover{
+                    color: white;
+                    background-color: rgba(255,255,255,0.2);
+                }
+                .btn:focus,
+                .btn.focus {
+                color: #f5f5f5;
+                text-decoration: none;
+
+
+            }
+                .textfont{
+                    font-size: 16px;    font-family: 'Source Sans Pro',sans-serif;
+                    font-size: 14px;
+                    text-decoration: none;
+                    letter-spacing: 2px;
+                    font-weight: 500;
+                    font-style: normal;
+                    line-height: 2em;
+
+                }
+            </style>
+            <li><a class="textfont" ng-show="!main.isLoggedIn" href="/" >HOME</a></li>
+            <li><a class="textfont" ng-show="!main.isLoggedIn" href="app/views/pages/index.html#welcome">SERVICES</a></li>  
+            <li><a class="textfont" ng-show="!main.isLoggedIn" href="app/views/pages/index.html#package">PACKAGES</a></li>
+            <li><a class="textfont" ng-show="!main.isLoggedIn" href="/about">ABOUT</a></li>
+            <style type="text/css">
+                .navbar-login
+            {
+                width: 305px;
+                padding: 10px;
+                padding-bottom: 0px;
+            }
+
+            .navbar-login-session
+            {
+                padding: 10px;
+                padding-bottom: 0px;
+                padding-top: 0px;
+            }
+
+            .icon-size
+            {
+                font-size: 87px;
+            }
+                .button-white a:hover,
+                .button-white a:focus {
+                    outline: 0;
+                    color: #ffffff;
+                }
+            </style>
+
+
+
+            <li class="dropdown" ng-show="main.isLoggedIn" style="padding-right: 10px;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Profile
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </a>
+                <ul class="dropdown-menu" style="margin-right: 9px;background-color: #1b1c21e0; color: #e7e7e7">
+                    <li>
+                    <div class="navbar-login">
+                        <p class="text-left" style="text-align: center; margin-bottom: 0px;"><strong>{{name}}</strong></p>
+                        <p class="text-left small" style="text-align: center;">{{main.useremail}}</p>
+                        <p class="text-left">
+                        <a href="/profile" ><button type="button" class="btn btn-sm btn-transparent button-white" style="width: 100%; ">VIEW PROFILE</button></a>
+                        </p>
+                    </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div class="navbar-login navbar-login-session">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <button type="button" class="btn btn-warning btn-block" style="width: 100%; " ng-click="main.logout();">LOG OUT</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </li>
+        </ul>
+        </div>      
+      </div>
+    </div><!-- /.navbar -->
+
+
+<style type="text/css">
+    #myBtn {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  z-index: 99;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background-color: #606060;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+</style>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!-- Header -->
+    <header ng-show="main.home" style="height:-webkit-fill-available;">
+        <div class="container">
+            <div class="intro-text" style="padding-top: 200px;">
+                <img src="assets/images/BumperWash-LOGOWHITE.png" style="margin-bottom: 10px; max-width: 50%;height: auto;">
+                <div class="textfont" style="font-size: 47px;line-height: 1.2em;">YOUR DAILY CAR WASH SERVICE</div>
+                <p class="textfont" style="font-size: 20px; letter-spacing: 1px;">Pamper your car!</p>
+                <a ng-show="!main.isLoggedIn" href="/enroll" class="page-scroll btn btn-xl btn-transparent" style="color:white; border-color: white; font-size: 15px; padding-left: 20px; ">ENROLL NOW</a>
+                <!-- remove this comment
+                <a ng-show="!main.isLoggedIn" href="/login" class="page-scroll btn btn-xl">Sign In</a>
+                <a ng-show="!main.isLoggedIn" href="/register" class="page-scroll btn twitterbtn">Register</a>
+                <a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();" class="page-scroll btn btn-xl">Logout</a>
+                <a ng-show="main.isLoggedIn && main.authorized" href="/management" class="page-scroll btn facebookbtn">View</a>
+                -->
+            </div>
+        </div>
+    </header>
+
+    <section id="services" ng-hide="main.home">
+        <div class="container">
+            <div class="row">
+
+                <!-- Angular View -->
+                <div ng-view></div>
+                <!-- Angular View -->
+
+            </div>
+        </div>
+    </section>
+
+    <section ng-show="main.home" id="welcome" style="padding: 100px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="textfont" style="font-size: 40px;margin-bottom: 30px;">WELCOME TO BUMPER WASH</h2>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <blockquote class="textfont" style="border-left: 5px solid #64b5f6; text-align: right;">
+                        "BumperWash is the best service for you to keep your car clean everyday. We offer daily car wash service, at your doorstep or your parking area, for your entire community. We commit to ensure that your car is shining clean every morning before you begin your day. BumperWash provides complete professional car care solutions, at the best price."
+                            </blockquote>
+                        </div>
+                        <div class="col-md-6 ">
+                            <img src="assets/images/cleaning2.jpg" style="max-height: 100%;max-width: 100%">
+                        </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section ng-show="main.home" style="padding-bottom: 0px;">
+    <div id="numbers" class="section sm-padding">
+
+        <!-- Background Image -->
+        <div class="bg-img" style="background-image: url('assets/images/bubble-clean-clear-339119.jpg');">
+            <div class="overlay"></div>
+        </div>
+        <!-- /Background Image -->
+
+        <!-- Container -->
+        <div class="container">
+            <center><h3 class="section-heading" style="color:#ebf4fb ">How it works?</h3></center>
+            <!-- Row -->
+            <div class="row">
+
+                <!-- number -->
+                <div class="col-sm-3 col-xs-6">
+                    <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 1</p></center>
+                    <p class="textfont" style="color:#ebf4fb  ">Enroll your apartment or community. Fill the form <a href="/enroll#enroll" >here.</a></p> 
+                </div>
+                <!-- /number -->
+
+                <!-- number -->
+                <div class="col-sm-3 col-xs-6">
+                    <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 2</p></center>
+                    <p class="textfont" style="color:#ebf4fb  ">We will get in touch with your administration or association. </p>
+                </div>
+                <!-- /number -->
+
+                <!-- number -->
+                <div class="col-sm-3 col-xs-6">
+                    <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 3</p></center>
+                    <p class="textfont" style="color:#ebf4fb  ">Get 1 week of free wash, and experience the quality of our service.</p>
+                </div>
+                <!-- /number -->
+
+                <!-- number -->
+                <div class="col-sm-3 col-xs-6">
+                    <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 4</p></center>
+                    <p class="textfont" style="color:#ebf4fb  ">Subscribe monthly or yearly to continue enjoying our service.</p>
+                </div>
+                <!-- /number -->
+
+            </div>
+            <!-- /Row -->
+
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /Numbers -->
+
+    </section>
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+.columns {
+    float: left;
+    width: 100%;
+    padding: 8px;
+}
+
+.price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+    background-color: #111111c7;
+    color: white;
+    font-size: 25px;
+}
+
+.price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+.price .grey {
+    background-color: #eee;
+    font-size: 20px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .columns {
+        width: 100%;
+    }
+}
+</style>
+            <style type="text/css">
+
+    /* Slider */
+
+    .slick-slide {
+        margin: 0px 10px;
+    }
+
+    .slick-slide img {
+        width: 100%;
+    }
+
+    .slick-slider
+    {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+                user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -ms-touch-action: pan-y;
+            touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .slick-list
+    {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    .slick-list:focus
+    {
+        outline: none;
+    }
+    .slick-list.dragging
+    {
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .slick-slider .slick-track,
+    .slick-slider .slick-list
+    {
+        -webkit-transform: translate3d(0, 0, 0);
+           -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+             -o-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+
+    .slick-track
+    {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+    .slick-track:before,
+    .slick-track:after
+    {
+        display: table;
+        content: '';
+    }
+    .slick-track:after
+    {
+        clear: both;
+    }
+    .slick-loading .slick-track
+    {
+        visibility: hidden;
+    }
+
+    .slick-slide
+    {
+        display: none;
+        float: left;
+        height: 100%;
+        min-height: 1px;
+    }
+    [dir='rtl'] .slick-slide
+    {
+        float: right;
+    }
+    .slick-slide img
+    {
+        display: block;
+    }
+    .slick-slide.slick-loading img
+    {
+        display: none;
+    }
+    .slick-slide.dragging img
+    {
+        pointer-events: none;
+    }
+    .slick-initialized .slick-slide
+    {
+        display: block;
+    }
+    .slick-loading .slick-slide
+    {
+        visibility: hidden;
+    }
+    .slick-vertical .slick-slide
+    {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+    .slick-arrow.slick-hidden {
+        display: none;
+    }
+    </style>
+    <section ng-show="main.home" id="package">
+        <div class="container">
+            <div class="row text-center">
+                <h2 class="textfont" style="font-size: 40px;">PRICING</h2>
+                   <div class="packages slider" >
+                    <div class="slide">
+                        <div class="columns">
+                          <ul class="price">
+                                <li class="header">TWO WHEELER</li>
+                                <li class="grey" style="padding: 5px;"><center><img src="assets/images/vespa.png" style="height: 60px;width:auto;"></center></li>
+                                <li>Everyday damp wash and shine</li>
+                                <li>Weekly exhaustive exterior wash</li>
+                                <li style="padding-bottom: 40px;"> </li>
+                                <li class="grey" style="background-color:#fff ">₹334/month</li>
+                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                              </ul>
+                        </div>
+                      </div> 
+
+                      <div class="slide">
+                        <div class="columns">
+                          <ul class="price">
+                                <li class="header">HATCHBACK</li>
+                                <li class="grey" style="padding: 5px;"><center><img src="assets/images/car.png" style="height: 60px;width: auto"></center></li>
+                                <li>Everyday damp wash and shine</li>
+                                <li>Weekly exhaustive exterior wash</li>
+                                <li>Bi weekly interior clean and shine</li>
+                                <li class="grey" style="background-color:#fff ">₹723/month</li>
+                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                              </ul>
+                        </div>
+                      </div>
+
+                      <div class="slide">
+                        <div class="columns">
+                          <ul class="price">
+                                <li class="header">SEDAN</li>
+                                <li class="grey" style="padding: 2.5px;"><center><img src="assets/images/car (1).png" style="height: 65px;width: auto"></center></li>                                
+                                <li>Everyday damp wash and shine</li>
+                                <li>Weekly exhaustive exterior wash</li>
+                                <li>Bi weekly interior clean and shine</li>
+                                <li class="grey" style="background-color:#fff ">₹835/month</li>
+                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                              </ul>
+                        </div>
+                      </div>
+
+                      <div class="slide">
+                        <div class="columns">
+                          <ul class="price">
+                                <li class="header">SUV</li>
+                                <li class="grey" style="padding: 5px;"><center><img src="assets/images/car (2).png" style="height: 60px;width: auto"></center></li>
+                                <li>Everyday damp wash and shine</li>
+                                <li>Weekly exhaustive exterior wash</li>
+                                <li>Bi weekly interior clean and shine</li>
+                                <li class="grey" style="background-color:#fff ">₹866/month</li>
+                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                              </ul>
+                        </div>
+                      </div>   
+
+
+                </div>
+                
+            </div>
+            <p style="font-size: 13px;">*OFFER: Be the first to Enroll your apartment and enjoy free car wash for 1 year!</p>
+        </div>
+    </section>
+
+    
+    <section ng-show="main.home" id="portfolio" style="background-color: #f7f7f7; padding: 20px 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="header" style="font-size: 20px; line-height: 1.1em;">We save <b style="font-weight: 1000">750</b> litres of water per car every month.</h2><h2 class="header" style="font-size: 20px; line-height: 1.1em;">That is equivalent to:</h2><br><br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="assets/images/clean-water.png" style="width: 90px;height: 90px"><br><br>
+                            <p class="textfont"><b style="font-weight: 900">750</b> bottles of water</p>
+                        </div>
+                        <div class="col-sm-4" style="background-color: #">
+                            <img src="assets/images/bathtub.png" style="width: 90px;height: 90px"><br><br>
+                            <p class="textfont"><b style="font-weight: 900">12</b> bath tubs </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="assets/images/shower-with-water-droplets.png" style="width: 90px;height: 90px"><br><br>
+                            <p class="textfont"><b style="font-weight: 900">10</b> days of shower </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section ng-show="main.home" id="portfolio" style="background-color: white; padding: 20px 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="textfont" style="font-size: 40px;">DISCOVER THE DIFFERENCE AT BUMPER WASH</h2>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h4>Professional service</h4>
+                            <img src="assets/images/constructor(2).png" style="width: 90px;height: 90px"><br><br>
+                            <p class="textfont">Verified Agents with Identification and Dress Code.</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <h4>Process Transparency</h4>
+                            <img src="assets/images/magnifying-glass.png" style="width: 90px;height: 90px"><br><br>
+                            <p class="textfont">Mobile App with Notifications.</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <h4>Minimal Water Usage</h4>
+                            <img src="assets/images/save-water.png" style="width: 90px;height: 90px"><br><br>
+                            <p class="textfont">Damp Wash with Top of Line Products.</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <h4>Everyday Care</h4>
+                            <img src="assets/images/thumbs-up (1).png" style="width: 90px;height: 90px"><br><br>
+                            <p class="textfont">Hassle Free daily service for spik and span cars.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--
+    <section style="padding: 10px 0;">
+        <div class="container">
+
+
+    <div class="container" ng-show="main.home" >
+        <br>
+        <h4 class="section-heading" style="text-align: center;">Products we use:</h4>
+
+       <section class="customer-logos slider" >
+            <div class="slide"><img src="assets/images/clients/3m.png"></div>
+            <div class="slide"><img src="assets/images/clients/Ambi_Pur_Logo.png" style="height:100px;
+                width:100px;margin-left: auto;margin-right: auto"></div>
+            <div class="slide"><img src="assets/images/clients/formula1.png"></div>
+            <div class="slide"><img src="assets/images/clients/Green.jpg"></div>
+            <div class="slide"><img src="assets/images/clients/motul.png"></div>
+            <div class="slide"><img src="assets/images/clients/bosch.png"></div>
+            <div class="slide"><img src="assets/images/clients/karcher.png"></div>
+            <div class="slide"><img src="assets/images/clients/proklear.png"></div>
+            
+       </section>
+    </div>
+    </div>
+    </section>
+-->
+
+<!--Location and contact-->
+    <section ng-show="main.home"  class="bg-light-gray" id="location">
+        <div class="container" >
+            <div class="row">
+                <div class="col-lg-6" style="margin-bottom: 20px;">
+                    <h2 class="section-heading">Location</h2>
+                    <div class="card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d960.6196079422473!2d77.50691682919222!3d12.969194306323091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzA5LjEiTiA3N8KwMzAnMjYuOSJF!5e1!3m2!1sen!2sin!4v1534275636462" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            <div class="container" id="contact">
+        <div class="col-md-6">
+        <h2 class="section-heading" >Contact Us</h2>
+    <div class="form-area">  
+        <form role="form" ng-submit="main.conUser(conData);" id="contactUs">
+        <br style="clear:both">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-model="main.conData.name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" ng-model="main.conData.email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" ng-model="main.conData.mobile" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Appartment name" name="Appartment name" placeholder="Appartment (optional)" ng-model="main.conData.aptname">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" ng-model="main.conData.subject" required>
+                    </div>
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" name="text" id="message" placeholder="Message" maxlength="140" rows="7" ng-model="main.conData.text"></textarea>                     
+                    </div>
+            
+                <button type="submit" id="submit" name="submit" class="btn btn-xl pull-right" style="padding: 10px 20px; font-size: 17px">Submit Form</button>
+            </form>
+                <div class="alert alert-success" id="loader" >
+                    <div class="loader" style="margin-left: 220px;"></div>
+                </div>
+                <div class="alert alert-success" id="success-alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>Success! </strong>
+                    Your message has been sent.
+                </div>
+                <div class="alert alert-danger" id="failure-alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>Oops! </strong>
+                    Something went wrong. Try again later.
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Footer -->
+    <style type="text/css">
+        /* Footer */
+    @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    section {
+        padding: 60px 0;
+    }
+
+    section .section-title {
+        text-align: center;
+        color: #007b5e;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+    #footer {
+        background: #1c1d21 !important;
+    }
+    #footer h5{
+        padding-left: 10px;
+        border-left: 3px solid #eeeeee;
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+        color:#ffffff;
+    }
+      #footer p{
+        text-align: left;
+            font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color:#ffffff;
+        margin: 0px;
+        margin-left: 15px;
+    }
+    #footer a {
+        color: #ffffff;
+        text-decoration: none !important;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+    #footer ul.social li{
+        padding: 3px 0;
+    }
+    #footer ul.social li a i {
+        margin-right: 5px;
+        font-size:25px;
+        -webkit-transition: .5s all ease;
+        -moz-transition: .5s all ease;
+        transition: .5s all ease;
+    }
+    #footer ul.social li:hover a i {
+        font-size:30px;
+        margin-top:-10px;
+    }
+    #footer ul.social li a,
+    #footer ul.quick-links li a{
+        color:#ffffff;
+    }
+    #footer ul.social li a:hover{
+        color:#eeeeee;
+    }
+    #footer ul.quick-links li{
+        padding: 3px 0;
+        -webkit-transition: .5s all ease;
+        -moz-transition: .5s all ease;
+        transition: .5s all ease;
+    }
+    #footer ul.quick-links li:hover{
+        padding: 3px 0;
+        margin-left:5px;
+        font-weight:700;
+    }
+    #footer ul.quick-links li a i{
+        margin-right: 5px;
+    }
+    #footer ul.quick-links li:hover a i {
+        font-weight: 700;
+    }
+
+    @media (max-width:767px){
+        #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+    }
+
+    </style>
+<section id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4" >                  
+                <img class="pull-left" src="assets/images/BumperWash-LOGOWHITE.png" style="width:40%; height: auto;">
+                <br>
+                <p style="margin-top: 30px;">#916, 3rd cross</p>
+                <p>ITI Layout, Nagarabhavi 2nd stage</p>
+                <p>Bangalore - Karnataka 560072</p> 
+                </br>
+                <p>+91 8660040976</p>
+                <p>bumperwash@gmail.com</p>
+
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4"  style="padding-left:125px;">
+                    <h5 style="text-align: left; font-size: 17px">Company</h5>
+                    <ul class="list-unstyled quick-links" style="text-align: left;">
+                        <li><a href="app/views/pages/index.html#" target="_top"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="app/views/pages/index.html#services"><i class="fa fa-angle-double-right"></i>Services</a></li>
+                        <li><a href="app/views/pages/index.html#about"><i class="fa fa-angle-double-right" ></i>About</a></li>
+                        <li><a href="app/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Contact</a></li>
+                        <li><a href="app/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Location</a></li>
+                        <li><a href="/dashworkflow" target="_top"><i class="fa fa-angle-double-right"></i>How it works</a></li>
+                    </ul>
+                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4" style="padding-left:125px;">
+                    <h5 style="text-align: left; font-size: 17px">Quick links</h5>
+                    <ul class="list-unstyled quick-links" style="text-align: left;">
+                        <li><a href="/faq#faq"><i class="fa fa-angle-double-right"></i>FAQs</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Terms and conditions</a></li>
+                        <li><a href="/privacypolicy#privacypolicy"><i class="fa fa-angle-double-right"></i>Privacy policy</a></li>
+                        <li><a href="apps/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            </br>
+        </br>
+        <h6 ng-show="!main.isLoggedIn" style="text-align: center; color: #fff;"><a href="/enroll#enroll" class="page-scroll btn btn-lg btn-transparent" style="width: 155px;margin-top: 3px;padding-left: 15px">Enroll now</a></h6></br>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center" >
+                        <li class="list-inline-item"><a href="https://fb.me/BumperWashLLP" target="#"><i class="fa fa-facebook"></i></a></li>&nbsp;&nbsp;
+                        <li class="list-inline-item"><a href="https://twitter.com/BumperWash" target="#"><i class="fa fa-twitter"></i></a></li>&nbsp;&nbsp;
+                        <li class="list-inline-item"><a href="https://www.instagram.com/bumperwash" target="#"><i class="fa fa-instagram"></i></a></li>&nbsp;&nbsp;
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/company/bumperwash" target="#"><i class="fa fa-linkedin"></i></a></li>&nbsp;&nbsp;
+                    </ul>
+                </div>
+                </br>
+            </div> 
+            </br> 
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p style="text-align: center;">Bumper Wash LLP</p>
+                    <p class="h6" style="text-align: center;">&copy All right reserved.</p>
+                </div>
+                </br>
+            </div>  
+        </div>
+    </section>
+    <!-- ./Footer -->
+
+    <!-- BootstrapJS Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button ng-hide="main.hideButton" type="button" ng-click="main.endSession();" class="close" data-dismiss="modal">&times;</button>
+                    <!-- Modal Header -->
+                    <h4 class="modal-title">{{ main.modalHeader }}</h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <p>{{ main.modalBody }}</p>
+                    <div ng-show="main.hideButton" class="dizzy-gillespie"></div>
+                </div>
+                <div class="modal-footer">
+                    <!-- Modal 'Yes' & 'No' Buttons -->
+                    <button type="button" ng-hide="main.hideButton" ng-click="main.renewSession();" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                    <button type="button" ng-hide="main.hideButton" ng-click="main.endSession();" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- BootstrapJS Modal -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5b73221bf31d0f771d83cac0/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>
