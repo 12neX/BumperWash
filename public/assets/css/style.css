@@ -327,11 +327,12 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-collapse {
     border-color: rgba(255, 255, 255, .02);
+
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #1ee2e7;
-    background-color: #1ee2e7;
+    border-color: #555;
+    background-color: #999;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -340,7 +341,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #1ee2e7;
+    background-color: #999;
 }
 
 .navbar-default .nav li a {
@@ -1112,12 +1113,14 @@ nav bar begin
         .affix-top .navbar-collapse {
            border-color:#646464;
            box-shadow:initial;
-           background-color: transparent;
         }
         .affix-top .navbar-collapse.in{
            border-color:#646464;
            box-shadow:initial;
-           background-color: #1b1c21e0;
+           
+        }
+        .navbar-collapse.in{
+            background-color: #1b1c21e0;
         }
 /* =============================
 nav bar end

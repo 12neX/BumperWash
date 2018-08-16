@@ -21,11 +21,7 @@
     <script src="app/routes.js"></script>
 
     <!-- Angular Controllers -->
-    <script src="app/controllers/userCtrl.js"></script>
     <script src="app/controllers/mainCtrl.js"></script>
-    <script src="app/controllers/emailCtrl.js"></script>
-    <script src="app/controllers/managementCtrl.js"></script>
-    <script src="app/controllers/enrollCtrl.js"></script>
 
     <!-- Angular Services -->
     <script src="app/services/userServices.js"></script>
@@ -102,7 +98,7 @@
                 }
             </script>
             <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars" style="color: #1c1d21"></i>
           </a>
         </div>
         <div class="navbar-collapse collapse" >
@@ -213,7 +209,7 @@
     #myBtn {
   display: none;
   position: fixed;
-  bottom: 50px;
+  bottom: 80px;
   right: 20px;
   z-index: 99;
   font-size: 15px;
@@ -231,7 +227,7 @@
 }
 </style>
     <script>
-    // When the user scrolls down 20px from the top of the document, show the button
+    // When the user scrolls down 1000px from the top of the document, show the button
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
@@ -317,28 +313,28 @@
             <div class="row">
 
                 <!-- number -->
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3 col-xs-6" style="padding-top: 15px;">
                     <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 1</p></center>
                     <p class="textfont" style="color:#ebf4fb  ">Enroll your apartment or community. Fill the form <a href="/enroll#enroll" >here.</a></p> 
                 </div>
                 <!-- /number -->
 
                 <!-- number -->
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3 col-xs-6" style="padding-top: 15px;">
                     <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 2</p></center>
                     <p class="textfont" style="color:#ebf4fb  ">We will get in touch with your administration or association. </p>
                 </div>
                 <!-- /number -->
 
                 <!-- number -->
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3 col-xs-6" style="padding-top: 15px;">
                     <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 3</p></center>
                     <p class="textfont" style="color:#ebf4fb  ">Get 1 week of free wash, and experience the quality of our service.</p>
                 </div>
                 <!-- /number -->
 
                 <!-- number -->
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3 col-xs-6" style="padding-top: 15px;">
                     <center><p class="textfont" style="color:#ebf4fb; font-size: 18px;">STEP 4</p></center>
                     <p class="textfont" style="color:#ebf4fb  ">Subscribe monthly or yearly to continue enjoying our service.</p>
                 </div>
@@ -835,7 +831,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4" >                  
                 <img class="pull-left" src="assets/images/BumperWash-LOGOWHITE.png" style="width:40%; height: auto;">
                 <br>
-                <p style="margin-top: 30px;">#916, 3rd cross</p>
+                <p style="margin-top: 40px;">#916, 3rd cross</p>
                 <p>ITI Layout, Nagarabhavi 2nd stage</p>
                 <p>Bangalore - Karnataka 560072</p> 
                 </br>
@@ -848,18 +844,17 @@
                     <ul class="list-unstyled quick-links" style="text-align: left;">
                         <li><a href="app/views/pages/index.html#" target="_top"><i class="fa fa-angle-double-right"></i>Home</a></li>
                         <li><a href="app/views/pages/index.html#services"><i class="fa fa-angle-double-right"></i>Services</a></li>
-                        <li><a href="app/views/pages/index.html#about"><i class="fa fa-angle-double-right" ></i>About</a></li>
+                        <li><a href="/about"><i class="fa fa-angle-double-right" ></i>About</a></li>
                         <li><a href="app/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Contact</a></li>
                         <li><a href="app/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Location</a></li>
-                        <li><a href="/dashworkflow" target="_top"><i class="fa fa-angle-double-right"></i>How it works</a></li>
                     </ul>
                 </div>
                                 <div class="col-xs-12 col-sm-4 col-md-4" style="padding-left:125px;">
                     <h5 style="text-align: left; font-size: 17px">Quick links</h5>
                     <ul class="list-unstyled quick-links" style="text-align: left;">
-                        <li><a href="/faq#faq"><i class="fa fa-angle-double-right"></i>FAQs</a></li>
+                        <li><a href="/faq"><i class="fa fa-angle-double-right"></i>FAQs</a></li>
                         <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Terms and conditions</a></li>
-                        <li><a href="/privacypolicy#privacypolicy"><i class="fa fa-angle-double-right"></i>Privacy policy</a></li>
+                        <li><a href="/privacypolicy"><i class="fa fa-angle-double-right"></i>Privacy policy</a></li>
                         <li><a href="apps/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Contact us</a></li>
                     </ul>
                 </div>
@@ -924,6 +919,15 @@
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+
+    <!-- Angular Controllers -->
+    <script src="app/controllers/userCtrl.js"></script>   
+    <script src="app/controllers/emailCtrl.js"></script>
+    <script src="app/controllers/managementCtrl.js"></script>
+    <script src="app/controllers/enrollCtrl.js"></script>
+
+
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
