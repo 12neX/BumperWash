@@ -30,6 +30,12 @@ angular.module('mainController', ['authServices', 'userServices'])
         }
     });
 
+    $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
+
+    window.scrollTo(0, 0);
+
+});
+    
     $(".customer-logos").slick({
         slidesToShow: 5,
         slidesToScroll: 1,

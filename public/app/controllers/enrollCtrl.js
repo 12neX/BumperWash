@@ -2,7 +2,7 @@ angular.module('enrollCtrl',[])
 
 .controller('enrollCtrl',['$scope','$http',function($scope,$http){
 	var app = this;
-		console.log("inside enrollCtrl");
+		
 
 	$(document).ready(function(){
 
@@ -13,7 +13,8 @@ angular.module('enrollCtrl',[])
         $("#failure-alert1").hide();
         //route to send data from contact form
         app.enrollUser= function(enrollData){
-            $("#loader").show();
+            console.log(this.enrollData);
+            $("#loader1").show();
             $http.post('/api/enroll', this.enrollData).then(function(response){
                 console.log(response);
                 $('#enrollform').trigger("reset");

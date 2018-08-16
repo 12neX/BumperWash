@@ -124,6 +124,7 @@ module.exports = function(router) {
 
     //Route to contact form in index.html
     router.post('/enroll', function(req, res){
+        console.log(req.body);
         // setup email data with unicode symbols
         var email = {
             from: '"BumperWash staff", bumperwash@gmail.com', // sender address
@@ -135,6 +136,7 @@ module.exports = function(router) {
                 <li>Phone: ${req.body.mobile}</li>
                 <li>Door number: ${req.body.aptnumber}</li>
                 <li>Appartment name: ${req.body.aptname}</li>
+                <li>Management info: ${req.body.managementinfo}</li>
                 <li>Appartment address: ${req.body.text}</li>
                 </ul>
                 <br/>

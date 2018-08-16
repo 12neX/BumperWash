@@ -140,7 +140,7 @@
 
                 }
             </style>
-            <li><a class="textfont" ng-show="!main.isLoggedIn" href="/" >HOME</a></li>
+            <li><a class="textfont" ng-show="!main.isLoggedIn" href="/app/views/pages/index.html" >HOME</a></li>
             <li><a class="textfont" ng-show="!main.isLoggedIn" href="app/views/pages/index.html#welcome">SERVICES</a></li>  
             <li><a class="textfont" ng-show="!main.isLoggedIn" href="app/views/pages/index.html#package">PACKAGES</a></li>
             <li><a class="textfont" ng-show="!main.isLoggedIn" href="/about">ABOUT</a></li>
@@ -284,7 +284,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <blockquote class="textfont" style="border-left: 5px solid #64b5f6; text-align: right;">
+                            <blockquote class="textfont" style="border-left: 5px solid #64b5f6; margin-top: 60px;">
                         "BumperWash is the best service for you to keep your car clean everyday. We offer daily car wash service, at your doorstep or your parking area, for your entire community. We commit to ensure that your car is shining clean every morning before you begin your day. BumperWash provides complete professional car care solutions, at the best price."
                             </blockquote>
                         </div>
@@ -540,7 +540,7 @@
                                 <li>Weekly exhaustive exterior wash</li>
                                 <li style="padding-bottom: 40px;"> </li>
                                 <li class="grey" style="background-color:#fff ">₹334/month</li>
-                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                                <li class="grey"><a href="/enroll" class="button">Subscribe</a></li>
                               </ul>
                         </div>
                       </div> 
@@ -554,7 +554,7 @@
                                 <li>Weekly exhaustive exterior wash</li>
                                 <li>Bi weekly interior clean and shine</li>
                                 <li class="grey" style="background-color:#fff ">₹723/month</li>
-                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                                <li class="grey"><a href="/enroll" class="button">Subscribe</a></li>
                               </ul>
                         </div>
                       </div>
@@ -568,7 +568,7 @@
                                 <li>Weekly exhaustive exterior wash</li>
                                 <li>Bi weekly interior clean and shine</li>
                                 <li class="grey" style="background-color:#fff ">₹835/month</li>
-                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                                <li class="grey"><a href="/enroll" class="button">Subscribe</a></li>
                               </ul>
                         </div>
                       </div>
@@ -582,7 +582,7 @@
                                 <li>Weekly exhaustive exterior wash</li>
                                 <li>Bi weekly interior clean and shine</li>
                                 <li class="grey" style="background-color:#fff ">₹866/month</li>
-                                <li class="grey"><a href="/enroll#enroll" class="button">Subscribe</a></li>
+                                <li class="grey"><a href="/enroll" class="button">Subscribe</a></li>
                               </ul>
                         </div>
                       </div>   
@@ -591,7 +591,7 @@
                 </div>
                 
             </div>
-            <p style="font-size: 13px;">*OFFER: Be the first to Enroll your apartment and enjoy free car wash for 1 year!</p>
+            <p style="font-size: 13px;">*BUMPER OFFER: Be the first to Enroll your apartment and enjoy free car wash for LIFETIME!</p>
         </div>
     </section>
 
@@ -708,7 +708,7 @@
                         <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" ng-model="main.conData.mobile" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Appartment name" name="Appartment name" placeholder="Appartment (optional)" ng-model="main.conData.aptname">
+                        <input type="text" class="form-control" id="Apartment name" name="Apartment name" placeholder="Apartment (optional)" ng-model="main.conData.aptname">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" ng-model="main.conData.subject" required>
@@ -829,7 +829,7 @@
         <div class="container">
             <div class="row text-center text-xs-center text-sm-left text-md-left">
                 <div class="col-xs-12 col-sm-4 col-md-4" >                  
-                <img class="pull-left" src="assets/images/BumperWash-LOGOWHITE.png" style="width:40%; height: auto;">
+                <a class="navbar-brand" href="app/views/pages/index.html"><img class="pull-left" src="assets/images/BumperWash-LOGOWHITE.png" style="width:40%; height: auto;"></a>
                 <br>
                 <p style="margin-top: 40px;">#916, 3rd cross</p>
                 <p>ITI Layout, Nagarabhavi 2nd stage</p>
@@ -842,10 +842,9 @@
                 <div class="col-xs-12 col-sm-4 col-md-4"  style="padding-left:125px;">
                     <h5 style="text-align: left; font-size: 17px">Company</h5>
                     <ul class="list-unstyled quick-links" style="text-align: left;">
-                        <li><a href="app/views/pages/index.html#" target="_top"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="app/views/pages/index.html#services"><i class="fa fa-angle-double-right"></i>Services</a></li>
+                        <li><a href="app/views/pages/index.html"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="app/views/pages/index.html#welcome"><i class="fa fa-angle-double-right"></i>Services</a></li>
                         <li><a href="/about"><i class="fa fa-angle-double-right" ></i>About</a></li>
-                        <li><a href="app/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Contact</a></li>
                         <li><a href="app/views/pages/index.html#location"><i class="fa fa-angle-double-right"></i>Location</a></li>
                     </ul>
                 </div>
@@ -861,7 +860,7 @@
             </div>
             </br>
         </br>
-        <h6 ng-show="!main.isLoggedIn" style="text-align: center; color: #fff;"><a href="/enroll#enroll" class="page-scroll btn btn-lg btn-transparent" style="width: 155px;margin-top: 3px;padding-left: 15px">Enroll now</a></h6></br>
+        <h6 ng-show="!main.isLoggedIn" style="text-align: center; color: #fff;"><a href="/enroll" class="page-scroll btn btn-lg btn-transparent" style="width: 155px;margin-top: 3px;padding-left: 15px">Enroll now</a></h6></br>
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
@@ -877,8 +876,8 @@
             </br> 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p style="text-align: center;">Bumper Wash LLP</p>
-                    <p class="h6" style="text-align: center;">&copy All right reserved.</p>
+                    <p style="text-align: center;margin-left: 0px">Bumper Wash LLP</p>
+                    <p class="h6" style="text-align: center;margin-left: 0px">&copy All right reserved.</p>
                 </div>
                 </br>
             </div>  
