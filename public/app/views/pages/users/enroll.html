@@ -13,7 +13,14 @@
 			</div>
 
 			<center>
-			<div class="form-area" style="width: 40%">  
+                <style type="text/css">
+                    @media(min-width:768px) {
+                        .formwidth{
+                            width: 40%;
+                        }
+                    }
+                </style>
+			<div class="form-area formwidth">  
         	<form role="form" ng-submit="enroll.enrollUser(enrollData);" id="enrollform">
         	<br style="clear:both">
 
@@ -31,10 +38,13 @@
                         <input type="text" class="form-control" id="Apartment name" name="Apartment name" placeholder="Apartment name" ng-model="enroll.enrollData.aptname" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Manager contact" name="Manager contact" placeholder="Management contact details (optional)" ng-model="enroll.enrollData.managementinfo" >
+                        <input type="text" class="form-control" id="Manager contact name" name="Manager contact" placeholder="Association contact person name (optional)" ng-model="enroll.enrollData.managementname" >
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" type="textarea" name="text" id="message" placeholder="Address" maxlength="140" rows="7" ng-model="enroll.enrollData.text"></textarea>                     
+                        <input type="text" class="form-control" id="Manager contact number" name="Manager contact num" placeholder="Association contact person phone number (optional)" ng-model="enroll.enrollData.managementnumber" >
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" type="textarea" name="text" id="message" placeholder="Address" maxlength="140" rows="7" ng-model="enroll.enrollData.text" required></textarea>                     
                     </div>
             
             

@@ -136,7 +136,8 @@ module.exports = function(router) {
                 <li>Phone: ${req.body.mobile}</li>
                 <li>Door number: ${req.body.aptnumber}</li>
                 <li>Appartment name: ${req.body.aptname}</li>
-                <li>Management info: ${req.body.managementinfo}</li>
+                <li>Association contact person name: ${req.body.managementname}</li>
+                <li>Association contact person number: ${req.body.managementnumber}</li>
                 <li>Appartment address: ${req.body.text}</li>
                 </ul>
                 <br/>
