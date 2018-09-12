@@ -8,8 +8,8 @@ var validate = require('mongoose-validator'); // Import Mongoose Validator Plugi
 var nameValidator = [
     validate({
         validator: 'matches',
-        arguments: /^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)+$/,
-        message: 'Name must be at least 3 characters, max 30, no special characters or numbers, must have space in between name.'
+        arguments: /^[a-zA-Z ]+$/,
+        message: 'Name must not have special characters or numbers, must have space in between name.'
     }),
     validate({
         validator: 'isLength',
@@ -35,13 +35,14 @@ var emailValidator = [
 // Username Validator
 var usernameValidator = [
     validate({
-        validator: 'isLength',
-        arguments: [3, 25],
-        message: 'Username should be between {ARGS[0]} and {ARGS[1]} characters'
+        validator: 'matches',
+        arguments: /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/,
+        message: 'Name must be at least 3 characters, max 40, no special characters or numbers, must have space in between name.'
     }),
     validate({
-        validator: 'isAlphanumeric',
-        message: 'Username must contain letters and numbers only'
+        validator: 'isLength',
+        arguments: [3, 40],
+        message: 'Email should be between {ARGS[0]} and {ARGS[1]} characters'
     })
 ];
 
@@ -65,6 +66,7 @@ var UserSchema = new Schema({
     username: { type: String, lowercase: true, required: true, unique: true, validate: usernameValidator },
     password: { type: String, required: true, validate: passwordValidator, select: false },
     email: { type: String, required: true, lowercase: true, unique: true, validate: emailValidator },
+    appartment: {type:String, required:true},
     active: { type: Boolean, required: true, default: false },
     temporarytoken: { type: String, required: true },
     resettoken: { type: String, required: false },
@@ -95,4 +97,4 @@ UserSchema.methods.comparePassword = function(password) {
     return bcrypt.compareSync(password, this.password); // Returns true if password matches, false if doesn't
 };
 
-module.exports = mongoose.model('User', UserSchema); // Export User Model for us in API
+module.exports = mongoose.model('User', UserSchema); // Export User Model for use in API

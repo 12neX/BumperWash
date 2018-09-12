@@ -44,6 +44,12 @@ var app = angular.module('appRoutes', ['ngRoute'])
         authenticated: false
     })
 
+    //Route: User dashboard(User Home)
+    .when('/dashboard', {
+        templateUrl: 'app/views/pages/users/dashboard.html',
+        authenticated: true
+    })
+
     // Route: User Profile
     .when('/profile', {
         templateUrl: 'app/views/pages/users/profile.html',

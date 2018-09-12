@@ -29,10 +29,11 @@ module.exports = function(router) {
     // Route to register new users  
     router.post('/users', function(req, res) {
         var user = new User(); // Create new User object
-        user.username = req.body.username; // Save username from request to User object
+        user.username = req.body.email; // Save username from request to User object
         user.password = req.body.password; // Save password from request to User object
         user.email = req.body.email; // Save email from request to User object
-        user.name = req.body.name; // Save name from request to User object
+        user.name = req.body.firstName; // Save name from request to User object
+        user.appartment = req.body.appartment;
         user.temporarytoken = jwt.sign({ username: user.username, email: user.email }, secret, { expiresIn: '24h' }); // Create a token for activating account through e-mail
 
         // Check if request is valid and not empty or null
@@ -70,11 +71,11 @@ module.exports = function(router) {
                 } else {
                     // Create e-mail object to send to user
                     var email = {
-                        from: 'MEAN Stack Staff, cruiserweights@zoho.com',
-                        to: [user.email, 'gugui3z24@gmail.com'],
+                        from: 'MEAN Stack Staff, bumperwash@gmail.com',
+                        to: [user.email],
                         subject: 'Your Activation Link',
-                        text: 'Hello ' + user.name + ', thank you for registering at localhost.com. Please click on the following link to complete your activation: http://www.herokutestapp3z24.com/activate/' + user.temporarytoken,
-                        html: 'Hello<strong> ' + user.name + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://www.herokutestapp3z24.com/activate/' + user.temporarytoken + '">http://www.herokutestapp3z24.com/activate/</a>'
+                        text: 'Hello ' + user.name + ', thank you for registering at www.bumperwash.com . Please click on the following link to complete your activation: http://localhost:80/activate/' + user.temporarytoken,
+                        html: 'Hello<strong> ' + user.name + '</strong>,<br><br>Thank you for registering at www.bumperwash.com . Please click on the link below to complete your activation:<br><br><a href="http://localhost:80/activate/' + user.temporarytoken + '">http://localhost:80/activate/</a>'
                     };
                     // Function to send e-mail to the user
                     client.sendMail(email, function(err, info) {
@@ -400,11 +401,11 @@ module.exports = function(router) {
                     } else {
                         // If user successfully saved to database, create e-mail object
                         var email = {
-                            from: 'MEAN Stack Staff, cruiserweights@zoho.com',
+                            from: 'MEAN Stack Staff',
                             to: user.email,
                             subject: 'Activation Link Request',
-                            text: 'Hello ' + user.name + ', You recently requested a new account activation link. Please click on the following link to complete your activation: https://immense-dusk-71112.herokuapp.com/activate/' + user.temporarytoken,
-                            html: 'Hello<strong> ' + user.name + '</strong>,<br><br>You recently requested a new account activation link. Please click on the link below to complete your activation:<br><br><a href="http://www.herokutestapp3z24.com/activate/' + user.temporarytoken + '">http://www.herokutestapp3z24.com/activate/</a>'
+                            text: 'Hello ' + user.name + ', You recently requested a new account activation link. Please click on the following link to complete your activation: https://localhost:80/activate/' + user.temporarytoken,
+                            html: 'Hello<strong> ' + user.name + '</strong>,<br><br>You recently requested a new account activation link. Please click on the link below to complete your activation:<br><br><a href="http://localhost:80/activate/' + user.temporarytoken + '">http://localhost:80/activate/</a>'
                         };
                         // Function to send e-mail to user
                         client.sendMail(email, function(err, info) {

@@ -1,8 +1,15 @@
+<div style="margin:40px; ">
+<style type="text/css">
+    .affix-top{
+        background-color: #1c1d21; 
+    }
+
+</style>
+
 <!-- Heading -->
-<div class="row text-center">
+<div class="row text-center" style="margin-top: 40px;">
     <div class="container">
-        <h2 class="section-heading">User Login</h2>
-        <h3 class="section-subheading text-muted">Please enter your login information.</h3>
+        <h2 class="section-heading">Login</h2>
     </div>
 </div>
 <!-- Heading -->
@@ -27,22 +34,15 @@
                                 <input ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" class="form-control" type="password" name="password" placeholder="password *" ng-model="main.loginData.password">
                             </div>
                         </div>
-                        <!-- Side Textarea Box for Sample user -->
+
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message." style="resize: none;">
-                                    Sample User: &#10; Username: demo &#10; Password: PAssword123!@#
-                                </textarea>
-                            </div>
                         </div>
+
                         <div class="clearfix"></div>
-                        <div class="col-lg-12 text-left">
+                        <div class="col-lg-6 text-left">
                             <div>
-                                <a href="/resetpassword">
+                                <a href="/resetpassword" class="pull-right">
                                     <button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-danger">Forgot Password</button>
-                                </a>
-                                <a href="/resetusername">
-                                    <button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-info">Forgot Username</button>
                                 </a>
                             </div>
                             <br>
@@ -90,3 +90,4 @@
     <!-- End of Container -->
 </section>
 <!-- Main Section /-->
+</div>

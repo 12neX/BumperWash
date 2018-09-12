@@ -1,0 +1,78 @@
+<style type="text/css">
+    .affix-top{
+        background-color: #1c1d21; 
+    }
+
+</style>
+<div style="background-color: #f7f7f7">
+	<div style="min-height: 800px;padding-top: 30px; ">
+		<div class="container" id="myTabs">
+		  <ul class="nav nav-tabs">
+		    <li class="active"><a data-toggle="tab" href="#home1">SELECT A PLAN</a></li>
+		    <li><a data-toggle="tab" href="#menu1">TRACK MY DAILY CAR WASH</a></li>
+		    <li><a data-toggle="tab" href="#menu2">MY PROFILE</a></li>
+		  </ul>
+
+		  <div class="tab-content">
+		    <div id="home1" class="tab-pane fade in active">
+		    	<div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <h2 class="textfont section-heading" style="font-size: 25px;">Select the type of vehicle</h2>
+		                    <select class="form-control " name="typeofcar" style="width: 50%; " required>
+                                <option value="" disabled selected>Select the type of your car</option>
+                                <option value="demo 3">Two-Wheeler</option>
+                                <option value="demo 1">Hatchback</option>
+                                <option value="demo 2">Sedan</option>
+                                <option value="demo 3">SUV</option>
+                            </select>
+                            <h2 class="textfont section-heading" style="font-size: 25px;">Enter the vehicle number</h2>
+                            <input type="text" name="car number" placeholder="Car number">
+                            <h2 class="textfont section-heading" style="font-size: 25px;">Enter the door number</h2>
+                            <input type="text" name="Door number" placeholder="Door number">
+		                	<br>
+		                	<h2 class="textfont section-heading" style="font-size: 25px;">Select start date</h2>
+
+
+
+		                	<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+
+
+
+		                	
+		      			</div>
+		      		</div>
+		     	</div> 
+		    </div>
+		    <div id="menu1" class="tab-pane fade">
+		      <h3></h3>
+		      <p>Click on "Select a plan" tab to purchase a package. </p>
+
+		    </div>
+		    <div id="menu2" class="tab-pane fade">
+		      <h3>Profile</h3>
+		      <p></p>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<a href="/login" class="button"> Proceed to pay</a>
+</div>

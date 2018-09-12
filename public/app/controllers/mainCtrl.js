@@ -8,13 +8,13 @@ angular.module('mainController', ['authServices', 'userServices'])
 
     // Check if user's session has expired upon opening page for the first time
     if (Auth.isLoggedIn()) {
-        // Check if a the token expired
+        // Check if the token expired
         Auth.getUser().then(function(data) {
             // Check if the returned user is undefined (expired)
             if (data.data.username === undefined) {
                 Auth.logout(); // Log the user out
                 app.isLoggedIn = false; // Set session to false
-                $location.path('/'); // Redirect to home page
+                $location.path('/dashboard'); // Redirect to home page
                 app.loadme = true; // Allow loading of page
             }
         });
@@ -34,49 +34,13 @@ angular.module('mainController', ['authServices', 'userServices'])
 
     window.scrollTo(0, 0);
 
-});
+    });
     
-    $(".customer-logos").slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        pauseOnHover: false,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 4
-            }
-        }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 3
-            }
-        }]
-    });
-    $(".packages").slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        pauseOnHover: false,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-            }
-        }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 1,
-            }
-        }]
+            $('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+});
 
-    });
 
     //Contact us form
     $("#loader").hide();
@@ -216,6 +180,7 @@ angular.module('mainController', ['authServices', 'userServices'])
         if (Auth.isLoggedIn()) {
             // Custom function to retrieve user data
             Auth.getUser().then(function(data) {
+                console.log(data);
                 if (data.data.username === undefined) {
                     app.isLoggedIn = false; // Variable to deactivate ng-show on index
                     Auth.logout();
@@ -226,6 +191,7 @@ angular.module('mainController', ['authServices', 'userServices'])
                     app.username = data.data.username; // Get the user name for use in index
                     checkLoginStatus = data.data.username;
                     app.useremail = data.data.email; // Get the user e-mail for us ein index
+
                     User.getPermission().then(function(data) {
                         if (data.data.permission === 'admin' || data.data.permission === 'moderator') {
                             app.authorized = true; // Set user's current permission to allow management

@@ -22,6 +22,7 @@
 
     <!-- Angular Controllers -->
     <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/dashboardCtrl.js"></script>
 
     <!-- Angular Services -->
     <script src="app/services/userServices.js"></script>
@@ -170,8 +171,6 @@
                 }
             </style>
 
-
-
             <li class="dropdown" ng-show="main.isLoggedIn" style="padding-right: 10px;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     Profile
@@ -180,7 +179,7 @@
                 <ul class="dropdown-menu" style="margin-right: 9px;background-color: #1b1c21e0; color: #e7e7e7">
                     <li>
                     <div class="navbar-login">
-                        <p class="text-left" style="text-align: center; margin-bottom: 0px;"><strong>{{name}}</strong></p>
+                        
                         <p class="text-left small" style="text-align: center;">{{main.useremail}}</p>
                         <p class="text-left">
                         <a href="/profile" ><button type="button" class="btn btn-sm btn-transparent button-white" style="width: 100%; ">VIEW PROFILE</button></a>
@@ -284,7 +283,7 @@
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <blockquote class="textfont" style="border-left: 5px solid #64b5f6; margin-top: 60px;">
-                        "BumperWash is the best service for you to keep your car clean everyday. We offer daily car wash service, at your doorstep or your parking area, for your entire community. We commit to ensure that your car is shining clean every morning before you begin your day. BumperWash provides complete professional car care solutions, at the best price."
+                        "Bumper Wash is the best service for you to keep your car clean everyday. We offer daily car wash service, at your doorstep or your parking area, for your entire community. We commit to ensure that your car is shining clean every morning before you begin your day. Bumper Wash provides complete professional car care solutions, at the best price."
                             </blockquote>
                         </div>
                         <div class="col-md-6 ">
@@ -296,6 +295,7 @@
             </div>
         </div>
     </section>
+
 <section ng-show="main.home" style="padding-bottom: 0px;">
     <div id="numbers" class="section sm-padding">
 
@@ -349,6 +349,30 @@
     <!-- /Numbers -->
 
     </section>
+
+    <section ng-show="main.home" style="background-color: #f7f7f7; padding: 20px 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="textfont section-heading" style="font-size: 40px;">SERVICES</h2><br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="textfont"><b style="font-weight: 900">Daily Exterior Damp Wash:</b></p><p class="textfont" style="text-align: justify;">The exterior of your car is washed using Automotive Grade dry/damp wash products. We ensure that highest quality products to give your car the showroom shine. The products also have carnauba wax, which give a glossy look while also serving as a protective layer on the paint.</p>
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <p class="textfont"><b style="font-weight: 900;">Weekly Exterior Exhaustive Wash:</b></p><p class="textfont" style="text-align: justify;">During our weekly exhaustive wash, we do a complete wash which includes Tyre Dressing, Rim Shine, MudGuard Scrub and Underbody Pressure Wash in addition to the service of Daily Exterior Wash. </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p class="textfont"><b style="font-weight: 900">Bi Weekly Interior Clean:</b></p><p class="textfont" style="text-align: justify;"> The interiors of the car are cleaned Bi Weekly, during which we vacuum the interiors, shine the dashboard, clean the upholstery, wash the rubber mats and clean air vents. You also get a complimentary Air Freshener which keeps your car fresh for the coming weeks.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
 <style>
 * {
     box-sizing: border-box;
@@ -411,7 +435,7 @@
         <div class="container">
             <div class="row text-center">
                 <h2 class="textfont section-heading" style="font-size: 40px;">PRICING</h2><br>
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
                         <div class="columns">
                           <ul class="price">
                                 <li class="header">TWO WHEELER</li>
@@ -426,7 +450,7 @@
                     </div>
  
 
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
                         <div class="columns">
                           <ul class="price">
                                 <li class="header">HATCHBACK</li>
@@ -441,7 +465,7 @@
                     </div>
 
 
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
                         <div class="columns">
                           <ul class="price">
                                 <li class="header">SEDAN</li>
@@ -455,7 +479,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
                         <div class="columns">
                           <ul class="price">
                                 <li class="header">SUV</li>
@@ -470,11 +494,11 @@
                     </div>
             
         </div>
-        <p style="font-size: 13px;">*BUMPER OFFER: Be the first to Enroll your apartment and enjoy free car wash for LIFETIME!</p>
+        <p style="font-size: 13px;">BUMPER OFFER: Be the first to Enroll your apartment and enjoy free car wash for LIFETIME!</p>
     </section>
 
     
-    <section ng-show="main.home" id="portfolio" style="background-color: #f7f7f7; padding: 20px 0px;">
+    <section ng-show="main.home" style="background-color: #f7f7f7; padding: 20px 0px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -509,22 +533,22 @@
                         <div class="col-sm-3">
                             <h4>Professional service</h4>
                             <img src="assets/images/constructor(2).png" style="width: 90px;height: 90px"><br><br>
-                            <p class="textfont">Verified Agents with Identification and Dress Code.</p>
+                            <p class="textfont">Verified agents with identification and dress code.</p>
                         </div>
                         <div class="col-sm-3">
                             <h4>Process Transparency</h4>
                             <img src="assets/images/magnifying-glass.png" style="width: 90px;height: 90px"><br><br>
-                            <p class="textfont">Mobile App with Notifications.</p>
+                            <p class="textfont">Mobile app with notifications.</p>
                         </div>
                         <div class="col-sm-3">
                             <h4>Minimal Water Usage</h4>
                             <img src="assets/images/save-water.png" style="width: 90px;height: 90px"><br><br>
-                            <p class="textfont">Damp Wash with Top of Line Products.</p>
+                            <p class="textfont">Damp wash with top of line products.</p>
                         </div>
                         <div class="col-sm-3">
                             <h4>Everyday Care</h4>
                             <img src="assets/images/thumbs-up (1).png" style="width: 90px;height: 90px"><br><br>
-                            <p class="textfont">Hassle Free daily service for spik and span cars.</p>
+                            <p class="textfont">Hassle free daily service for spick and span cars.</p>
                         </div>
                     </div>
                     
@@ -592,7 +616,7 @@
                         <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" ng-model="main.conData.subject" required>
                     </div>
                     <div class="form-group">
-                    <textarea class="form-control" type="textarea" name="text" id="message" placeholder="Message" maxlength="140" rows="7" ng-model="main.conData.text"></textarea>                     
+                    <textarea class="form-control" type="textarea" name="text" id="message" placeholder="Message" maxlength="140" rows="7" ng-model="main.conData.text" required></textarea>                     
                     </div>
             
                 <button type="submit" id="submit" name="submit" class="btn btn-xl pull-right" style="padding: 10px 20px; font-size: 17px">Submit Form</button>

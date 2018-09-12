@@ -13,7 +13,6 @@ angular.module('userControllers', ['userServices'])
 
         // If form is valid and passwords match, attempt to create user         
         if (valid && confirmed) {
-            app.regData.name = app.regData.firstName + " " + app.regData.lastName; // Combine first and last name before submitting to database
             // Runs custom function that registers the user in the database 
             User.create(app.regData).then(function(data) {
                 // Check if user was saved to database successfully
@@ -36,7 +35,7 @@ angular.module('userControllers', ['userServices'])
             app.disabled = false; // If error occurs, remove disable lock from form
             app.loading = false; // Stop bootstrap loading icon
             $scope.alert = 'alert alert-danger'; // Set class for message
-            app.errorMsg = 'Please ensure form is filled our properly'; // Display error if valid returns false
+            app.errorMsg = 'Please ensure form is filled out properly'; // Display error if valid returns false
         }
     };
 
